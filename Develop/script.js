@@ -32,8 +32,11 @@ function makePassword() {
         special = confirm("do you want special characters?")
  
         }
-           
+    //  if char === true || numb === true || upper === true || lower === true || special === true 
      }
+
+    //  1. pass what user said yes to to generator functions ... maybe if === true statements?
+    //  2. pass generator results to password output box
 
 
    

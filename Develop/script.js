@@ -4,12 +4,12 @@ const generateBtn = document.querySelector("#generate");
 
 
 
-// const collection = {
-//     numb: getRandomNumber,
-//     lower: getRandomLower,
-//     upper: getRandomUpper,
-//     special: getRandomSymbol
-// };
+const collection = {
+    numb: getRandomNumber,
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    special: getRandomSymbol
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", makePassword)
@@ -32,18 +32,43 @@ function makePassword() {
     var special = confirm("do you want special characters?")
  
         }
-   numbersGenerator(char, numb, upper, lower, special)
+   var passwordStorage = numbersGenerator(char, numb, upper, lower, special)
+console.log(passwordStorage)
+insertPassword(passwordStorage)
     };
- 
-     
- function numbersGenerator(char, numb, uppper, lower, special) {
-    return
- }
-    //  1. pass what user said yes to to generator functions ... maybe if === true statements?
-    //  2. pass generator results to password output box
-
   
-//   pass what user entered to the Generator Functions
+
+ function numbersGenerator(char, numb, upper, lower, special) {
+    charSelection = [];
+    if(numb){
+        charSelection.push("numb")
+    }
+    if(upper){
+        charSelection.push("upper")
+    }
+    if(lower){
+        charSelection.push("lower")
+    }
+    if(special){
+        charSelection.push("special")
+    }
+    var passwordHolder = ''
+    for (i = 0; i < char; i++){
+        var randomCharType = charSelection[Math.floor(Math.random() * charSelection.length)]
+        
+        var randomCharacter = collection[randomCharType]()
+       
+        passwordHolder = passwordHolder.concat(randomCharacter)
+        console.log(passwordHolder)
+    }
+
+return passwordHolder
+
+
+ };
+
+
+
 
 
 function getRandomNumber() {
@@ -65,8 +90,8 @@ function getRandomSymbol() {
 }
 
     
-    function insertPassword(char, numb, upper, lower, special) {
-        
+    function insertPassword(pwd) {
+        document.querySelector("textarea").textContent = pwd
     }
 
 

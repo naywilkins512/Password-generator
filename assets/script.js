@@ -3,7 +3,6 @@
 const generateBtn = document.querySelector("#generate");
 
 
-
 const collection = {
     numb: getRandomNumber,
     lower: getRandomLower,
@@ -11,19 +10,21 @@ const collection = {
     special: getRandomSymbol
 };
 
-// Add event listener to generate button
+// event listener for generate button
 generateBtn.addEventListener("click", makePassword)
 
 
-//  pass query selector to password generating questions
+//  password generating questions
 
 function makePassword() {
     var char = parseInt(prompt("how many characters do you want in your password? choose between 8 and 30"))
     if (!char) {
-        alert("you have to enter something!")
+        alert("you have to enter something!");
+        makePassword()
     }
     else if (char < 8 || char > 30) {
-        alert("pick between 8 and 30")
+        alert("pick between 8 and 30");
+        makePassword()
     }
     else if (char >= 8 || char <= 30) {
         var numb = confirm("do you want numbers?")
@@ -33,7 +34,6 @@ function makePassword() {
 
     }
     var passwordStorage = numbersGenerator(char, numb, upper, lower, special)
-    console.log(passwordStorage)
     insertPassword(passwordStorage)
 };
 

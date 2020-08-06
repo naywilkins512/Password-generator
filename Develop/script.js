@@ -18,54 +18,54 @@ generateBtn.addEventListener("click", makePassword)
 //  pass query selector to password generating questions
 
 function makePassword() {
-   var char = parseInt(prompt("how many characters do you want in your password? choose between 8 and 30")) 
-        if (!char) {
-            alert("you have to enter something!")
-        }
-        else if (char < 8 || char > 30) {
-            alert("pick between 8 and 30")
-        }
-        else if (char >= 8 || char <= 30) { 
-    var numb = confirm("do you want numbers?")
-    var upper = confirm("do you want uppercase?")
-    var lower = confirm("do you want lowercase?")
-    var special = confirm("do you want special characters?")
- 
-        }
-   var passwordStorage = numbersGenerator(char, numb, upper, lower, special)
-console.log(passwordStorage)
-insertPassword(passwordStorage)
-    };
-  
+    var char = parseInt(prompt("how many characters do you want in your password? choose between 8 and 30"))
+    if (!char) {
+        alert("you have to enter something!")
+    }
+    else if (char < 8 || char > 30) {
+        alert("pick between 8 and 30")
+    }
+    else if (char >= 8 || char <= 30) {
+        var numb = confirm("do you want numbers?")
+        var upper = confirm("do you want uppercase?")
+        var lower = confirm("do you want lowercase?")
+        var special = confirm("do you want special characters?")
 
- function numbersGenerator(char, numb, upper, lower, special) {
+    }
+    var passwordStorage = numbersGenerator(char, numb, upper, lower, special)
+    console.log(passwordStorage)
+    insertPassword(passwordStorage)
+};
+
+
+function numbersGenerator(char, numb, upper, lower, special) {
     charSelection = [];
-    if(numb){
+    if (numb) {
         charSelection.push("numb")
     }
-    if(upper){
+    if (upper) {
         charSelection.push("upper")
     }
-    if(lower){
+    if (lower) {
         charSelection.push("lower")
     }
-    if(special){
+    if (special) {
         charSelection.push("special")
     }
     var passwordHolder = ''
-    for (i = 0; i < char; i++){
+    for (i = 0; i < char; i++) {
         var randomCharType = charSelection[Math.floor(Math.random() * charSelection.length)]
-        
+
         var randomCharacter = collection[randomCharType]()
-       
+
         passwordHolder = passwordHolder.concat(randomCharacter)
         console.log(passwordHolder)
     }
 
-return passwordHolder
+    return passwordHolder
 
 
- };
+};
 
 
 
@@ -89,10 +89,10 @@ function getRandomSymbol() {
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-    
-    function insertPassword(pwd) {
-        document.querySelector("textarea").textContent = pwd
-    }
+
+function insertPassword(pwd) {
+    document.querySelector("textarea").textContent = pwd
+}
 
 
 

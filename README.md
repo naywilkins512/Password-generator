@@ -2,7 +2,7 @@
 
 A random **password** **generator** based on user-selected criteria. Pop-up prompts let the user choose whether or not to include Uppercase letters, lowercase letters, special characters, and/or numbers before generating a random password and displaying it in a text box. A clean user interface and responsive design offer wide accesibilty across different platforms.
 
-[Deployed Link]()
+[Deployed Link](https://naywilkins512.github.io/password-generator/)
 
 
 ## Demo

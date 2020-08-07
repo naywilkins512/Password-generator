@@ -17,16 +17,16 @@ generateBtn.addEventListener("click", makePassword)
 //  password generating questions
 
 function makePassword() {
-    var char = parseInt(prompt("how many characters do you want in your password? choose between 8 and 30"))
+    var char = parseInt(prompt("how many characters do you want in your password? choose between 8 and 128"))
     if (!char) {
         alert("you have to enter something!");
         makePassword()
     }
-    else if (char < 8 || char > 30) {
-        alert("pick between 8 and 30");
+    else if (char < 8 || char > 128) {
+        alert("pick between 8 and 128");
         makePassword()
     }
-    else if (char >= 8 || char <= 30) {
+    else if (char >= 8 || char <= 128) {
         var numb = confirm("do you want numbers?")
         var upper = confirm("do you want uppercase?")
         var lower = confirm("do you want lowercase?")

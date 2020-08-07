@@ -7,7 +7,7 @@ A random **password** **generator** based on user-selected criteria. Pop-up prom
 
 ## Demo
 
-![passwordGeneratorGif](./gif/passwordGeneratorGif.gif)
+![passwordGeneratorGif](./gif/passwordGenerator.gif)
 
 
 

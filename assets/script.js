@@ -3,13 +3,6 @@
 const generateBtn = document.querySelector("#generate");
 
 
-const collection = {
-    numb: getRandomNumber,
-    lower: getRandomLower,
-    upper: getRandomUpper,
-    special: getRandomSymbol
-};
-
 // event listener for generate button
 generateBtn.addEventListener("click", makePassword)
 
@@ -41,6 +34,35 @@ function makePassword() {
     insertPassword(passwordStorage)
 };
 
+const collection = {
+    numb: getRandomNumber,
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    special: getRandomSymbol
+};
+
+//generates random characters using character codes
+
+function getRandomNumber() {
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+
+}
+
+function getRandomLower() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+function getRandomUpper() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function getRandomSymbol() {
+    const symbols = '!@#$%^&*()+/'
+    return symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+
+//pushes random characters into string based on user password length selection
 
 function numbersGenerator(char, numb, upper, lower, special) {
     charSelection = [];
@@ -63,7 +85,7 @@ function numbersGenerator(char, numb, upper, lower, special) {
         var randomCharacter = collection[randomCharType]()
 
         passwordHolder = passwordHolder.concat(randomCharacter)
-        console.log(passwordHolder)
+
     }
 
     return passwordHolder
@@ -71,28 +93,7 @@ function numbersGenerator(char, numb, upper, lower, special) {
 
 };
 
-
-
-
-
-function getRandomNumber() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-
-}
-
-function getRandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-
-function getRandomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-
-function getRandomSymbol() {
-    const symbols = '!@#$%^&*()+/'
-    return symbols[Math.floor(Math.random() * symbols.length)];
-}
-
+// inserts password into text area
 
 function insertPassword(pwd) {
     document.querySelector("textarea").textContent = pwd

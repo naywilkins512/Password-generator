@@ -33,6 +33,10 @@ function makePassword() {
         var special = confirm("do you want special characters?")
 
     }
+    if (!numb && !upper && !lower && !special) {
+        alert("pick at least one variable");
+        makePassword()
+    }
     var passwordStorage = numbersGenerator(char, numb, upper, lower, special)
     insertPassword(passwordStorage)
 };
